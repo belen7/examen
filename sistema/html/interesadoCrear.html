@@ -1,0 +1,131 @@
+<div class="jumbotron jumbotron-fluid rounded">
+  <div class="container">
+    <h1 class="display-4">Registro del Interesado</h1>
+    <hr>
+    <p class="lead">Estos datos son estrictamente confidenciales.</p>
+<form id="form">
+  <div class="form-group row">
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fa fa-address-card"></i>
+          </div>
+        </div> 
+        <input id="inputAltaApellido" placeholder="Apellido" type="text" class="form-control" minlength="8" maxlength="35" required>
+      </div>
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fa fa-address-card"></i>
+          </div>
+        </div> 
+        <input id="inputAltaNombre" placeholder="Nombres" type="text" class="form-control" minlength="8" maxlength="35" required>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fa fa-address-card"></i>
+          </div>
+        </div> 
+        <input id="inputAltaDocumento" placeholder="Documento" type="text" class="form-control" minlength="8" maxlength="8" required>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fa fa-address-card"></i>
+          </div>
+        </div> 
+        <input id="inputAltaDomicilio" placeholder="Domicilio" type="text" class="form-control" minlength="5" maxlength="35" required>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fa fa-address-card"></i>
+          </div>
+        </div> 
+        <input id="inputAltaTelefono" placeholder="Telefono" type="text" class="form-control" minlength="8" maxlength="15" required>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fa fa-address-card"></i>
+          </div>
+        </div> 
+        <input id="inputAltaEmail" placeholder="Email" type="email" class="form-control" minlength="8" maxlength="35" required>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fa fa-address-card"></i>
+          </div>
+        </div> 
+        <select id="inputAltaLocalidad" class="form-control select2" placeholder="Localidad" required></select>
+      </div>
+    </div>
+  </div>
+
+  <!--<div class="card" style="width: 18rem;">
+    <img class="card-img-top rounded-circle" src="../assets/img/avatar.png" width="80">
+    <div class="card-body">
+        <h5 class="card-title">Sube una foto</h5>
+        <div class="form-group">
+          <input id="inputAltaNombreFoto" type="hidden" class="form-control" minlength="8" maxlength="255" required>
+            <input type="file" class="form-control-file" name="image" id="image" required>
+        </div>
+    </div>
+</div>-->
+
+
+<div class="container">
+  <img class="img-fluid img-thumbnail rounded picture" id="picture" src="../assets/img/avatar.png">
+</div>
+
+<div class="form-group row">
+  <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8 float-center">
+    <div class="input-group">
+      <input id="inputAltaNombreFoto" type="hidden" class="form-control" minlength="8" maxlength="255" required>
+            <input type="file" class="form-control-file" name="image" id="image" required>
+    </div>
+  </div>
+</div>
+
+  <div class="form-group row">
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
+       <button type="button" class="btn btn-primary btn-block" onclick="entidadGuardarNuevo()">Guardar</button>
+    </div>
+  </div>
+</form>
+
+</div>
+</div>
