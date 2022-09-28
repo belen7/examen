@@ -9,8 +9,8 @@ include_once 'pagination.php';
 
 //die(unserialize('a:1:{i:0;s:8:"empleado";}')[0]);
 
-$rol = 'admin';
-$rol_class = ($rol=='admin')?'':'disabledbutton';
+
+$rol_class = ($_SESSION['user_rol']=='admin')?'':'disabledbutton';
 
 /**********************************************************************************************************************************************************************/
 /**************************************************************** RECIBIR PARAMETROS Y SANITIZARLOS *******************************************************************/
@@ -199,7 +199,7 @@ if($action == 'listar'){
 						$rowCampo11 = $row['pago'];
 
 						echo '<tr>';
-						echo '   <td align="center"><small><b><input type="checkbox" class="check" id="check_'.$rowIdCampo1.' " name="check_usu[]" value="'.$rowIdCampo1.'"></b></small></td>'.
+						echo '   <td align="center"><small><b><input type="checkbox" class="check" id="check_'.$rowIdCampo1.'" name="check_usu[]" value="'.$rowIdCampo1.'"></b></small></td>'.
 							 '   <td align="center" colspan="3">
 							 		<div class="btn-group pull-right" role="group">
 										<button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -209,6 +209,7 @@ if($action == 'listar'){
 											<a class="dropdown-item small" href="#"><i class="fa fa-address-card-o"></i>&nbsp;Ver</a>
 											<a class="'.$rol_class.' dropdown-item small" href="#" onclick="entidadEditar('.$rowIdCampo1.')"><i class="fa fa-edit"></i>&nbsp;Editar</a>
 											<a class="'.$rol_class.' dropdown-item small" href="#" data-toggle="modal" data-target="#confirmarModal" data-id="'.$rowIdCampo1.'"><i class="fa fa-trash"></i>&nbsp;Borrar</a>
+											<a class="'.$rol_class.' dropdown-item small" href="#" data-toggle="modal" data-target="#confirmarModal" data-id="'.$rowIdCampo1.'"><i class="fa fa-envelope"></i>&nbsp;Enviar Email</a>
 										</div>
                              		</div>
 							 </td>'.

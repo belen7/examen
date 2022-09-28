@@ -1,153 +1,155 @@
-<?php
-session_start();
-session_destroy();
-$id_pagina = 'login';
- ?>
-
 <!doctype html>
 <html lang="es">
 <head>
-  <title>Escuela Normal Superior 40 - Gestion de Alumnado</title>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="icon" href="./public/img/favicon.ico">
-  <!-- css custom bootstrap theme -->
-  <link rel="stylesheet" href="./public/css/custom.css" type="text/css">
-  <!-- assets fonts -->
-  <link rel="stylesheet" href="https://www.santafe.gob.ar/assets/standard/css/fonts.css" type="text/css">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SiAcreAc - Sistema Acreditacion Academica</title>
+   <?php include_once('mod_css.html'); ?>
+   <link rel="stylesheet" href="./sistema/css/custom.css">
+   <?php include("mod_jquery.html"); ?>
   <style>
+    .input-group > .select2-container--bootstrap {
+      border-color: #EAEDED !important;
+	width: auto;
+	flex: 1 1 auto;
+}
 
-  /* fallback */
-  @font-face {
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: 400;
-    src: url(./public/assets/material-design-icons/MaterialIcons-Regular.eot); /* For IE6-8 */
-    src: local('Material Icons'),
-    local('MaterialIcons-Regular'),
-    url(./public/assets/material-design-icons/MaterialIcons-Regular.woff2) format('woff2'),
-    url(./public/assets/material-design-icons/MaterialIcons-Regular.woff) format('woff'),
-    url(./public/assets/material-design-icons/MaterialIcons-Regular.ttf) format('truetype');
-  }
+.input-group > .select2-container--bootstrap .select2-selection--single {
+	height: 100%;
+	line-height: inherit;
+	padding: 0.5rem 1rem;
+}
 
-  .material-icons {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    line-height: 1;
-    letter-spacing: normal;
-    text-transform: none;
-    display: inline-block;
-    white-space: nowrap;
-    word-wrap: normal;
-    direction: ltr;
-    -moz-font-feature-settings: 'liga';
-    -moz-osx-font-smoothing: grayscale;
-  }
+.disabledbutton {
+          pointer-events: none;
+          opacity: 0.5;
+      }
+
+      label.cameraButton {
+  display: inline-block;
+  margin: 1em 0;
+
+  /* Styles to make it look like a button */
+  padding: 0.5em;
+  border: 2px solid #666;
+  border-color: #EEE #CCC #CCC #EEE;
+  background-color: #DDD;
+}
+
+/* Look like a clicked/depressed button */
+label.cameraButton:active {
+  border-color: #CCC #EEE #EEE #CCC;
+}
+
+/* This is the part that actually hides the 'Choose file' text box for camera inputs */
+label.cameraButton input[accept*="camera"] {
+  display: none;
+}
+
   </style>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script src="https://www.google.com/recaptcha/api.js?render=6Ld6Y6oaAAAAAMqMNwMcdEBjkJugmHZ6Nu6Cpc5T"></script>
+  
+      
 </head>
-
-
 <body>
-    <?php include_once('navBar.php') ?>
+  <!-- NAVBAR -->
+ <header>
+    <?php include("mod_navbar.php"); ?>
+  </header>
 
-
-  <main role="main" class="container">
-    <div class="row row-top">
-
-      <div class="col-lg-12">
-
-
-
-      </div>
+  <article>
+    <div id="breadcrumb">
+      <nav aria-label="breadcrumb" role="navigation">
+          <ol class="breadcrumb">
+              <li class="breadcrumb-item" aria-current="page">Home</li>
+          </ol>
+      </nav>
     </div>
+  </article>
 
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card bg-light mb-12">
-          <div class="card-header"><b><h1>Sistema de Gestion Academica</h1></b></div>
-          <div class="card-body">
-<form name="formAcceder" id="formAcceder" action='ajax/autenticar1.php'>
-<div class="modal-body">
-        <div class="form-row">
-              <div class="form-group col-md-4">
-                <label for="inputPerfil">Perfil</label>
+  <article class="container">
+    <div id="titulo" style="background-color: #C1E0F5;"></div>
+  </article>
 
-                <select id="inputPerfil" name="inputPerfil" class="form-control" required>
-                    <option value='' selected>Seleccione Perfil</option>
-                    <option value='2' >Profesor</option>
-                    <option value='1' >Alumno</option>
-                </select>
-              </div>
-        </div>
+  <article class="container">
+       <section>
+            <div id="resultado">
 
-       <div class="form-row">
-              <div class="form-group col-xs-12 col-sm-4 col-md-4">
-                    <label for="inputUsuario">Usuario</label>
-                    <input type="text" class="form-control" name="inputUsuario" id="inputUsuario" maxlength="8" placeholder="Ingrese DNI">
-              </div>
+            <div class="jumbotron jumbotron-fluid rounded">
+  <div class="container">
+    <h1 class="display-4">Ingresar al Sistema</h1>
+    <hr>
+    <p class="lead">Estos datos son estrictamente confidenciales.</p>
 
-      </div>
-
-      <div class="form-row">
-        <div class="form-group col-xs-12 col-sm-4 col-md-4">
-            <label for="inputPassword">Contrase&ntilde;a</label>
-            <input type="password" class="form-control" name="inputPassword" id="inputPassword" maxlength="10" placeholder="Ingrese Contrase&ntilde;a">
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group col-xs-12 col-sm-4 col-md-4 ">
-          <button type="submit" class="btn btn-primary">Aceptar</button>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-xs-12 col-sm-12 col-md-12" id="resultado">
-
-        </div>
-      </div>
-
-</div>
-<div class="modal-footer">
-
-</div>
-</form>
-
-</div>
-
-          <div class="card-footer">
-            <?php include_once('social.html');?>
+<form id="form">
+<div class="form-group row">
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fa fa-address-card"></i>
           </div>
-
-        </div>
-
+        </div> 
+        <input id="inputEmail" placeholder="Email" type="email" class="form-control" minlength="8" maxlength="35" required>
       </div>
     </div>
-
-
-    <div class="row">
-      <div class="col-12">
-        <p class="float-right">
-          <a href="#"><i class="material-icons">keyboard_arrow_up</i></a>
-        </p>
+  </div>
+  
+  <div class="form-group row">
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fa fa-address-card"></i>
+          </div>
+        </div> 
+        <input id="inputPassword" placeholder="Password" type="password" class="form-control" minlength="8" maxlength="10" required>
       </div>
     </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
+       <button type="button" class="btn btn-primary btn-block" onclick="autenticarUsuario()">Ingresar</button>
+    </div>
+  </div>
+</form>
+</div>
+</div>
 
 
-  </main>
 
-  <div class="clearfix"><br></div>
+            </div><!-- Cierra Row-->
+            <div class="row" id="resultado_accion">
 
-<?php include_once('footer.php'); ?>
+            </div><!-- Cierra Row-->
+        </section>
+  </article>
 
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="./public/assets/jquery/jquery-3.2.1.slim/jquery-3.2.1.min.js"></script>
-<script src="./public/assets/popper.js/1.12.3/umd/popper.min.js"></script>
-<script src="./public/assets/bootstrap/bootstrap-4.0.0-beta.2/js/bootstrap.min.js"></script>
-<script src="./public/assets/custom/verify.min.js"></script>
-    </body>
+
+<!-- FOOTER -->
+<?php include("mod_footer.html"); ?>
+
+
+<!-- JAVASCRIPT CUSTOM -->
+<script>
+    
+    function autenticarUsuario() {
+        let usuario = $("#inputEmail").val();
+        let password = $("#inputPassword").val();
+        let parametros = {'usuario':usuario,'password':password};
+        let url = "./sistema/funciones/usuarioAutenticar.php";
+        $.post(url, parametros, function (data) {
+             if (data.codigo==100) {
+                  location.href="./sistema/index.php";
+             } else {
+                  $("#resultado_accion").html(`<div class="col-xs-12 col-sm-12 col-md-12 alert alert-danger">
+                                               <strong>Atención: </strong>`+data.mensaje+`
+                                           </div>`);
+             }
+        },"json");
+    }    
+    
+</script>
+
+</body>
 </html>

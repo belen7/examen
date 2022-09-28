@@ -1,3 +1,6 @@
+<?php 
+  session_start();
+?>  
 <!doctype html>
 <html lang="es">
 <head>
@@ -53,6 +56,7 @@
 
   <article class="container">
        <section>
+        aaaa <?php echo $_SESSION['user_rol'];?>
             <div id="resultado"></div><!-- Cierra Row-->
             <div class="row" id="resultado_accion">
             </div><!-- Cierra Row-->

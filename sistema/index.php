@@ -1,5 +1,11 @@
+<?php 
+session_start();
+
+echo $_SESSION['user_rol'];
+//echo unserialize('a:1:{i:0;s:8:"empleado";}')[0];
+?>
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,7 +44,7 @@
             <div class="row" id="resultado">
 				<div class="col-xs-12 col-sm-12 col-md-3">&nbsp;</div>
 				<div class="col-xs-12 col-sm-12 col-md-6">
-				    <img src="../assets/img/esc40a.jpg">
+				    <img src="ggg../assets/img/esc40a.jpg">
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-3"></div>
 			</div><!-- Cierra Row-->

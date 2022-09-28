@@ -9,12 +9,6 @@
 
  <ul class="navbar-nav">
 
-   <li class="nav-item nav-item-home">
-    <a class="nav-link" href="home.php">
-      <img src="./assets/img/icons/home_icon.png" width="23">
-      <span class="sr-only">(current)</span></a>
-   </li>
-
    <li class="nav-item nav-item-cliente">
        <a class="nav-link" href="./public/registrarme.php">
          Registrarme
@@ -22,7 +16,7 @@
    </li>
    
    <li class="nav-item nav-item-usuarios">
-       <a class="nav-link" href="itemUsuario.php">
+       <a class="nav-link disabled" href="itemUsuario.php">
          Créditos
        <span class="sr-only">(current)</span></a>
    </li>
@@ -34,7 +28,7 @@
 <ul class="navbar-nav ml-auto">
 
   <li class="nav-item nav-item-usuarios">
-       <a class="nav-link" href="itemUsuario.php">
+       <a class="nav-link" href="login.php">
          Ingresar al Sistema
        <span class="sr-only">(current)</span></a>
   </li>
