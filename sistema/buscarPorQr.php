@@ -1,7 +1,12 @@
 <?php 
-$dni = base64_decode($_GET['q']);
-
+  include_once('./funciones/controlAcceso.php');
+  $dni = base64_decode($_GET['q']);
+  $nav_item_home = "";
+  $nav_item_interesado = "";
+  $nav_item_usuario = "";
+  $nav_item_escanear = "active";
 ?>
+
 <!doctype html>
 <html lang="es">
 <head>

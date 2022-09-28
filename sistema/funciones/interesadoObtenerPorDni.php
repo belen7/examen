@@ -1,6 +1,6 @@
 <?php
 set_include_path('../../conexion'.PATH_SEPARATOR.'../../lib');
-//include_once 'seguridadNivel2.php';
+include_once 'controlAcceso.php';
 include_once 'conexion.php';
 include_once 'Sanitize.class.php';
 

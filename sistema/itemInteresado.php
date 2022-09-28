@@ -1,5 +1,9 @@
 <?php 
-  session_start();
+  include_once('./funciones/controlAcceso.php');
+  $nav_item_home = "";
+  $nav_item_interesado = "active";
+  $nav_item_usuario = "";
+  $nav_item_escanear = "";
 ?>  
 <!doctype html>
 <html lang="es">
@@ -56,7 +60,6 @@
 
   <article class="container">
        <section>
-        aaaa <?php echo $_SESSION['user_rol'];?>
             <div id="resultado"></div><!-- Cierra Row-->
             <div class="row" id="resultado_accion">
             </div><!-- Cierra Row-->

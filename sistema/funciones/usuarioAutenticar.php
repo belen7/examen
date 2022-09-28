@@ -34,7 +34,7 @@ if ($email && $password) {
               WHERE u.email='$email' and u.password='$passwordMD5' and u.rol_id = ur.id";
       $res = @mysqli_query($conex,$sql);
 
-      //die($sql);
+      //die($sql.'**'.mysqli_num_rows($res));
 
       if (mysqli_num_rows($res)==1) {
             $array_resultados['codigo'] = 100;

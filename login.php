@@ -140,7 +140,7 @@ label.cameraButton input[accept*="camera"] {
         let url = "./sistema/funciones/usuarioAutenticar.php";
         $.post(url, parametros, function (data) {
              if (data.codigo==100) {
-                  location.href="./sistema/index.php";
+                  location.href="./sistema/home.php";
              } else {
                   $("#resultado_accion").html(`<div class="col-xs-12 col-sm-12 col-md-12 alert alert-danger">
                                                <strong>Atención: </strong>`+data.mensaje+`

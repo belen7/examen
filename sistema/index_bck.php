@@ -1,9 +1,3 @@
-<?php 
-session_start();
-
-echo $_SESSION['user_rol'];
-//echo unserialize('a:1:{i:0;s:8:"empleado";}')[0];
-?>
 <!doctype html>
 <html lang="es">
 <head>

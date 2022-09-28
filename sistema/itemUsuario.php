@@ -1,3 +1,10 @@
+<?php 
+  include_once('./funciones/controlAcceso.php');
+  $nav_item_home = "";
+  $nav_item_interesado = "";
+  $nav_item_usuario = "active";
+  $nav_item_escanear = "";
+?> 
 <!doctype html>
 <html lang="es">
 <head>

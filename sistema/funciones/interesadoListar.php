@@ -1,7 +1,7 @@
 <?php
 header("Content-type: text/html; charset=utf8");
 set_include_path('../../lib/'.PATH_SEPARATOR.'../../conexion/');
-//require_once 'seguridadNivel1.php';
+require_once 'controlAcceso.php';
 include_once 'conexion.php';
 include_once 'Sanitize.class.php';
 include_once 'pagination.php';

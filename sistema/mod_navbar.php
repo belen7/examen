@@ -9,32 +9,29 @@
 
  <ul class="navbar-nav">
 
-   <li class="nav-item nav-item-home">
+   <li class="nav-item <?=$nav_item_home;?>">
     <a class="nav-link" href="home.php">
       <img src="../assets/img/icons/home_icon.png" width="23">
       <span class="sr-only">(current)</span></a>
    </li>
 
-   
-
-
 </ul>
 
 <ul class="navbar-nav ml-auto">
 
-   <li class="nav-item nav-item-cliente">
+   <li class="nav-item <?=$nav_item_interesado;?>">
        <a class="nav-link" href="itemInteresado.php">
          Interesados
        <span class="sr-only">(current)</span></a>
    </li>
    
-   <li class="nav-item nav-item-usuarios">
+   <li class="nav-item <?=$nav_item_usuario;?>">
        <a class="nav-link" href="itemUsuario.php">
          Usuarios
        <span class="sr-only">(current)</span></a>
    </li>
 
-   <li class="nav-item nav-item-usuarios">
+   <li class="nav-item <?=$nav_item_escanear;?>">
        <a class="nav-link" href="escanearQr.php">
          Escanear QR
        <span class="sr-only">(current)</span></a>

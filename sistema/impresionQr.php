@@ -1,5 +1,5 @@
 <?php
-//require_once('./controlAcceso.php');
+include_once('./funciones/controlAcceso.php');
 require('../lib/fpdf/mc_table.php');
 require_once('../lib/phpqrcode/qrlib.php');
 

@@ -1,5 +1,12 @@
+<?php 
+  include_once('./funciones/controlAcceso.php');
+  $nav_item_home = "active";
+  $nav_item_interesado = "";
+  $nav_item_usuario = "";
+  $nav_item_escanear = "";
+?> 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
