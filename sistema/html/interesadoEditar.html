@@ -72,30 +72,33 @@
     </div>
   </div>
 
-  <div class="form-group row justify-content-center">
-    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text">
-            <i class="fa fa-address-card"></i>
-          </div>
-        </div> 
-        <input id="inputTelefono" inputmode="tel" placeholder="Telefono" type="text" class="form-control" minlength="8" maxlength="35" required>
-      </div>
+
+  
+  <div class="form-row">  
+    <div class="form-group col-md-6">
+      <label for="inputEmail">Teléfono</label>
+      <input id="inputTelefono" inputmode="tel" placeholder="Telefono" type="text" class="form-control" minlength="8" maxlength="35" required>
     </div>
   </div>
 
-  <div class="form-group row justify-content-center">
-    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text">
-            <strong>&nbsp;0&nbsp;</strong>
-          </div>
-        </div> 
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCity">Carácteristica</label>
         <input id="inputCaracteristicaTelefono" inputmode="tel" placeholder="Caracteristica" type="text" class="form-control" minlength="2" maxlength="4"  onkeypress="return valideKey(event);"  required>
       </div>
+      <div class="form-group col-md-6">
+        <label for="inputZip">Número</label>
+        <input id="inputNumeroTelefono" inputmode="tel" placeholder="Numero" type="text" class="form-control" minlength="5" maxlength="11"  onkeypress="return valideKey(event);"  required>
+      </div>
     </div>
+
+
+    <div class="form-row">  
+      <div class="form-group col-md-6">
+        <label for="inputEmail">Email</label>
+        <input id="inputEmail" inputmode="email" placeholder="Email" type="email" class="form-control" minlength="8" maxlength="35" required>
+      </div>
+    </div> 
 
     <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
         &nbsp;
@@ -113,56 +116,26 @@
     </div>
   </div>
 
-  <div class="form-group row justify-content-center">
-    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text">
-            <i class="fa fa-address-card"></i>
-          </div>
-        </div> 
-        <input id="inputEmail" inputmode="email" placeholder="Email" type="email" class="form-control" minlength="8" maxlength="35" required>
-      </div>
-    </div>
+<div class="form-row">  
+  <div class="form-group col-md-6">
+    <label for="inputEmail">Email</label>
+    <input id="inputEmail" inputmode="email" placeholder="Email" type="email" class="form-control" minlength="8" maxlength="35" required>
+  </div>
+</div>  
+
+  <div class="form-group">
+    <label for="inputLocalidad">Localidad</label>
+    <select id="inputLocalidad" class="form-control select2" placeholder="Localidad" required></select>
   </div>
 
-  <div class="form-group row justify-content-center">
-    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text">
-            <i class="fa fa-address-card"></i>
-          </div>
-        </div> 
-        <select id="inputLocalidad" class="form-control select2" placeholder="Localidad" required></select>
-      </div>
-    </div>
+  <div class="form-group">
+    <label for="inputAsistio">Asistió</label>
+    <select id="inputAsistio" class="form-control" placeholder="Asistio" required><option value="Si">Si</option><option value="No">No</option></select>
   </div>
 
-  <div class="form-group row justify-content-center">
-    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text">
-            <i class="fa fa-address-card"></i>
-          </div>
-        </div> 
-        <select id="inputAsistio" class="form-control" placeholder="Asistio" required><option value="Si">Si</option><option value="No">No</option></select>
-      </div>
-    </div>
-  </div>
-
-  <div class="form-group row justify-content-center">
-    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text">
-            <i class="fa fa-address-card"></i>
-          </div>
-        </div> 
-        <select id="inputPago" class="form-control" placeholder="Pago" required><option value="Si">Si</option><option value="No">No</option></select>
-      </div>
-    </div>
+  <div class="form-group">
+    <label for="inputPago">Pagó</label>
+    <select id="inputPago" class="form-control" placeholder="Pago" required><option value="Si">Si</option><option value="No">No</option></select>
   </div>
 
   <div>&nbsp;</div>   

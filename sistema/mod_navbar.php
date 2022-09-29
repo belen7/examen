@@ -26,7 +26,7 @@
    </li>
    
    <li class="nav-item <?=$nav_item_usuario;?>">
-       <a class="nav-link <?=$nav_item_usuario_disabled;?>"" href="itemUsuario.php">
+       <a class="nav-link <?=$nav_item_usuario_disabled;?>" href="itemUsuario.php">
          Usuarios
        <span class="sr-only">(current)</span></a>
    </li>

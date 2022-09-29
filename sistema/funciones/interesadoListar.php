@@ -61,7 +61,7 @@ $sql = $sqlCantidadFilas = "";
 
 if($action == 'listar'){
 	$tables = " interesado c, localidad l, provincia p ";
-	$campos = " c.id, c.apellido, c.nombres, c.dni, c.direccion, c.telefono, c.email, c.localidad_id, l.nombre as interesado_localidad, p.nombre as interesado_provincia, c.pago, c.asistio";
+	$campos = " c.id, c.apellido, c.nombres, c.dni, c.direccion, c.telefono, c.telefono_caracteristica, c.telefono_numero, c.email, c.localidad_id, l.nombre as interesado_localidad, p.nombre as interesado_provincia, c.pago, c.asistio";
 	//if ($id) $andX[] = 'c.id = "' . $id .'"';
     if ($nombres) $andX[] = '(c.apellido like "%' . $nombres . '%" or c.nombres like "%' . $nombres . '%")';  
 	if ($dni) $andX[] = 'c.dni like "%' . $dni . '%"';
@@ -80,7 +80,7 @@ if($action == 'listar'){
     $sql = "";
 	if ($busqueda) 
 	{
-		$campos_nuevos = "  x.id, x.apellido, x.nombres, x.dni, x.direccion, x.telefono, x.email, x.interesado_localidad, x.interesado_provincia, x.pago, x.asistio ";
+		$campos_nuevos = "  x.id, x.apellido, x.nombres, x.dni, x.direccion, x.telefono, x.telefono_caracteristica, x.telefono_numero, x.email, x.interesado_localidad, x.interesado_provincia, x.pago, x.asistio ";
 		$subConsultaFiltros = "SELECT $campos FROM  $tables $where";
 		//die($subConsultaFiltros);
 		$sqlCantidadFilas =  "SELECT count(*) AS numrows FROM  ($subConsultaFiltros) x
@@ -193,7 +193,7 @@ if($action == 'listar'){
 						$rowCampo2 = $row['apellido'].', '.$row['nombres'];
 						$rowCampo4 = $row['dni'];
 						$rowCampo5 = $row['direccion'];
-						$rowCampo6 = $row['telefono'];
+						$rowCampo6 = '('.$row['telefono_caracteristica'].') '.$row['telefono_numero'];
 						$rowCampo7 = $row['email'];
 						$rowCampo8 = $row['interesado_localidad'];
 						$rowCampo9 = $row['interesado_provincia'];
