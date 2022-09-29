@@ -271,6 +271,7 @@ function entidadEditar(entidad_id){
       $("#breadcrumb").slideDown("slow").html(breadcrumb);   
       datos_entidad = entidadObtenerPorId(entidad_id);
       console.log(datos_entidad)
+      
       $.get(url,function(data) {
             $("#resultado").slideDown("slow").html(data);
             /******************************************************************** */
@@ -281,6 +282,8 @@ function entidadEditar(entidad_id){
             $("#inputDocumento").val(datos_entidad.datos[0].dni);
             $("#inputDomicilio").val(datos_entidad.datos[0].direccion);
             $("#inputTelefono").val(datos_entidad.datos[0].telefono);
+            $("#inputCaracteristicaTelefono").val(datos_entidad.datos[0].telefono_caracteristica);
+            $("#inputNumeroTelefono").val(datos_entidad.datos[0].telefono_numero);
             $("#inputEmail").val(datos_entidad.datos[0].email);
             $("#inputAsistio option[value="+ datos_entidad.datos[0].asistio +"]").attr("selected",true);
             $("#inputPago option[value="+ datos_entidad.datos[0].pago +"]").attr("selected",true);
@@ -292,7 +295,7 @@ function entidadEditar(entidad_id){
             let anio = (datos_entidad.datos[0].fecha_nacimiento).substr(0,4);
             let mes = (datos_entidad.datos[0].fecha_nacimiento).substr(5,2);
             let dia = (datos_entidad.datos[0].fecha_nacimiento).substr(8,2);
-            alert(anio+'-'+mes+'-'+dia);
+            
             
             //$("#inputFechaNacimiento").val(datos_entidad.datos[0].fecha_nacimiento);
             let realDate = new Date(anio+'/'+mes+'/'+dia);  
@@ -318,6 +321,8 @@ function entidadEditar(entidad_id){
                     cache: true
                 }
             });
+            $("#inputAsistio option[value="+ datos_entidad.datos[0].asistio +"]").attr("selected",true);
+            $("#inputPago option[value="+ datos_entidad.datos[0].Pago +"]").attr("selected",true);
             //alert(datos_entidad.datos[0].localidad_id);
            // $('#inputLocalidad').find("option[value='" + datos_entidad.datos[0].localidad_id + "']")
             //$('#inputLocalidad').val(datos_entidad.datos[0].localidad_id); // Select the option with a value of '1'
@@ -341,6 +346,7 @@ function entidadEditar(entidad_id){
 // NOS PERMITE BUSCAR UNA ENTIDAD POR ID       */
 //************************************************** */
 function entidadObtenerPorId(entidad_id){
+    console.info(entidad_id);
     let url = "funciones/"+entidad_nombre+"ObtenerPorId.php";
     let resultado;
     

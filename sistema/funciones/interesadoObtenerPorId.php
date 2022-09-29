@@ -8,10 +8,10 @@ $id = ( isset($_POST['id']) )?SanitizeVars::INT($_POST['id']):false;
 
 $array_resultados = array();
 if ($id) {
-    $sql = "SELECT c.*, l.nombre as localidad_nombre, p.nombre as provincia_nombre
-            FROM cliente c, localidad l, provincia p
-            WHERE c.id = $id and c.localidad_id=l.id and l.provincia_id=p.id";
-
+    $sql = "SELECT i.*, l.nombre as localidad_nombre, p.nombre as provincia_nombre
+            FROM interesado i, localidad l, provincia p
+            WHERE i.id = $id and i.localidad_id=l.id and l.provincia_id=p.id";
+    //die($sql);
     $resultado = mysqli_query($conex,$sql);
     if (mysqli_num_rows($resultado)>0) {
       $filas = mysqli_fetch_all($resultado,MYSQLI_ASSOC);
