@@ -10,7 +10,9 @@ include_once 'pagination.php';
 //die(unserialize('a:1:{i:0;s:8:"empleado";}')[0]);
 
 
-$rol_class = ($_SESSION['user_rol']=='admin')?'':'disabledbutton';
+$rol_usuario = '';
+$rol_admin = ($_SESSION['user_rol']=='admin')?'':'disabledbutton';
+
 
 /**********************************************************************************************************************************************************************/
 /**************************************************************** RECIBIR PARAMETROS Y SANITIZARLOS *******************************************************************/
@@ -131,8 +133,8 @@ if($action == 'listar'){
 							   <table width="100%">
 							 	   <tr>
 										<th class="text-left" colspan="5">
-											<button class="btn btn-success '.$rol_class.'" onclick="entidadCrear()">Agregar</button>&nbsp;
-											<button class="btn btn-danger '.$rol_class.'" onclick="entidadEliminarSeleccionados()">Borrar Seleccionados</button>&nbsp;
+											<button class="btn btn-success '.$rol_admin.'" onclick="entidadCrear()">Agregar</button>&nbsp;
+											<button class="btn btn-danger '.$rol_admin.'" onclick="entidadEliminarSeleccionados()">Borrar Seleccionados</button>&nbsp;
 										</th>
 										<th class="text-right" colspan="7">
 												<div class="col-7">
@@ -151,7 +153,7 @@ if($action == 'listar'){
 							</th>
         				</tr>
 						<tr>
-							<th class="text-center" width="5%"><small><b><input type="checkbox" id="seleccionar_todos"></b></small></th>
+							<th class="text-center" width="5%"><small><b><input type="checkbox" class="'.$rol_admin.'" id="seleccionar_todos"></b></small></th>
 							<th width="10%" class="text-center text-primary" colspan=3><small><b>Acciones</b><small></th>
 							<th class="text-center text-primary" width="8%"><small><b>'.$campo2.'</b></small></th>
 							<th class="text-center text-primary" width="9%"><small><b>'.$campo4.'</b></small></th>
@@ -199,17 +201,17 @@ if($action == 'listar'){
 						$rowCampo11 = $row['pago'];
 
 						echo '<tr>';
-						echo '   <td align="center"><small><b><input type="checkbox" class="check" id="check_'.$rowIdCampo1.'" name="check_usu[]" value="'.$rowIdCampo1.'"></b></small></td>'.
+						echo '   <td align="center"><small><b><input type="checkbox" class="'.$rol_admin.' check" id="check_'.$rowIdCampo1.'" name="check_usu[]" value="'.$rowIdCampo1.'"></b></small></td>'.
 							 '   <td align="center" colspan="3">
 							 		<div class="btn-group pull-right" role="group">
 										<button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 											Acciones
 										</button>
 										<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-											<a class="dropdown-item small" href="#"><i class="fa fa-address-card-o"></i>&nbsp;Ver</a>
-											<a class="'.$rol_class.' dropdown-item small" href="#" onclick="entidadEditar('.$rowIdCampo1.')"><i class="fa fa-edit"></i>&nbsp;Editar</a>
-											<a class="'.$rol_class.' dropdown-item small" href="#" data-toggle="modal" data-target="#confirmarModal" data-id="'.$rowIdCampo1.'"><i class="fa fa-trash"></i>&nbsp;Borrar</a>
-											<a class="'.$rol_class.' dropdown-item small" href="#" data-toggle="modal" data-target="#confirmarModal" data-id="'.$rowIdCampo1.'"><i class="fa fa-envelope"></i>&nbsp;Enviar Email</a>
+											<a class="'.$rol_usuario.'dropdown-item small" href="#"><i class="fa fa-address-card-o"></i>&nbsp;Ver</a>
+											<a class="'.$rol_usuario.' dropdown-item small" href="#" onclick="entidadEditar('.$rowIdCampo1.')"><i class="fa fa-edit"></i>&nbsp;Editar</a>
+											<a class="'.$rol_admin.' dropdown-item small" href="#" data-toggle="modal" data-target="#confirmarModal" data-id="'.$rowIdCampo1.'"><i class="fa fa-trash"></i>&nbsp;Borrar</a>
+											<a class="'.$rol_admin.' dropdown-item small" href="#" data-toggle="modal" data-target="#confirmarModal" data-id="'.$rowIdCampo1.'"><i class="fa fa-envelope"></i>&nbsp;Enviar Email</a>
 										</div>
                              		</div>
 							 </td>'.

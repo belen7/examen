@@ -1,9 +1,17 @@
 <?php 
   include_once('./funciones/controlAcceso.php');
+  $nav_item_usuario_disabled = "";
+  $nav_item_escanear_disabled = "";
+  if ($_SESSION['user_rol']=='usuario') {
+    $nav_item_usuario_disabled = "disabled";
+    $nav_item_escanear_disabled = "disabled";
+  }
   $nav_item_home = "";
   $nav_item_interesado = "active";
   $nav_item_usuario = "";
   $nav_item_escanear = "";
+
+
 ?>  
 <!doctype html>
 <html lang="es">

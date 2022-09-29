@@ -20,7 +20,6 @@ $(function () {
 //****************************************** */
 function load(page) {
     let id = $("#inputFiltroId").val();
-    let apellido = $("#inputFiltroApellido").val();
     let nombres = $("#inputFiltroNombres").val();
     let dni = $("#inputFiltroDni").val();
     let domicilio = $("#inputFiltroDomicilio").val();
@@ -98,7 +97,6 @@ function load(page) {
   //******************************************* */
   function aplicarBusquedaRapida() {
         let id = $("#inputFiltroId").val();
-        let apellido = $("#inputFiltroApellido").val();
         let nombres = $("#inputFiltroNombres").val();
         let dni = $("#inputFiltroDni").val();
         let domicilio = $("#inputFiltroDomicilio").val();
@@ -270,8 +268,7 @@ function entidadEditar(entidad_id){
                           </nav>`;
       $("#breadcrumb").slideDown("slow").html(breadcrumb);   
       datos_entidad = entidadObtenerPorId(entidad_id);
-      console.log(datos_entidad)
-      
+     
       $.get(url,function(data) {
             $("#resultado").slideDown("slow").html(data);
             /******************************************************************** */
@@ -346,7 +343,6 @@ function entidadEditar(entidad_id){
 // NOS PERMITE BUSCAR UNA ENTIDAD POR ID       */
 //************************************************** */
 function entidadObtenerPorId(entidad_id){
-    console.info(entidad_id);
     let url = "funciones/"+entidad_nombre+"ObtenerPorId.php";
     let resultado;
     
@@ -356,10 +352,8 @@ function entidadObtenerPorId(entidad_id){
     $.post(url, {"id":entidad_id}, function (data) {
           resultado = data;
     },"json")
-    console.log(resultado)
     return resultado;
 }
-
 
 //************************************************* */
 // GRABA LA ENTIDAD NUEVO EN LA BASE DE DATOS       */
@@ -371,16 +365,18 @@ function entidadGuardarEditado(){
     let dni = $("#inputDocumento").val();
     let domicilio = $("#inputDomicilio").val();
     let telefono = $("#inputTelefono").val();
+    let telefono_caracteristica = $("#inputCaracteristicaTelefono").val();
+    let telefono_numero = $("#inputNumeroTelefono").val();
     let email = $("#inputEmail").val();
     let localidad = $("#inputLocalidad").val();
     let asistio = $("#inputAsistio").val();
     let pago = $("#inputPago").val();
     let fecha_nacimiento = $("#inputFechaNacimiento").val();
 
-    let parametros = {"id":id,"apellido":apellido, "nombres":nombres, "dni":dni, "domicilio":domicilio, "telefono":telefono, "email":email, "localidad":localidad, "asistio":asistio, "pago":pago, "fecha_nacimiento":fecha_nacimiento};
-    //console.info(parametros);
+    let parametros = {"id":id,"apellido":apellido, "nombres":nombres, "dni":dni, "domicilio":domicilio, "telefono":telefono, "telefono_caracteristica":telefono_caracteristica, "telefono_numero":telefono_numero ,"email":email, "localidad":localidad, "asistio":asistio, "pago":pago, "fecha_nacimiento":fecha_nacimiento};
+    console.log(parametros);
     let url = "funciones/"+entidad_nombre+"Editar.php";
-    if (id!="" && apellido!="" && nombres!=="" && dni!="" && domicilio!="" && telefono!="" && email!="" && localidad!="") {
+    if (id!="" && apellido!="" && nombres!=="" && dni!="" && domicilio!="" && telefono!="" && email!="" && localidad!="" && asistio!="" && pago!="" && fecha_nacimiento!="") {
         $.post(url,parametros, function(data) {
             if (data.codigo==100) {
                     $("#resultado_accion").html(`
@@ -404,7 +400,22 @@ function entidadGuardarEditado(){
                                                     </button>   
                                                 </span>    
                                             </div>`);
-            }
+            };
+            $("#inputId").val("");
+            $("#inputApellido").val("");
+            $("#inputNombre").val("");
+            $("#inputDocumento").val("");
+            $("#inputDomicilio").val("");
+            $("#inputTelefono").val("");
+            $("#inputCaracteristicaTelefono").val("");
+            $("#inputNumeroTelefono").val("");
+            $("#inputEmail").val("");
+            $("#inputLocalidad").val("");
+            $("#inputAsistio option[value=No]").attr("selected",true);
+            $("#inputPago option[value=No]").attr("selected",true);
+            let hoy = new Date();  
+            let fecha_hoy = hoy.getDate() + '/' + ( hoy.getMonth() + 1 ) + '/' + hoy.getFullYear();
+            $("#inputFechaNacimiento").datepicker('setDate',fecha_hoy);
             load(1);
         },"json"); 
     } else {

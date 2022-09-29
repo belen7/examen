@@ -127,12 +127,15 @@ abstract class SanitizeVars {
         return FALSE;
       }
 
-      public static function SI_NO($string){
+    /* Developer jfontanellaz@gmail.com */
+    /* Recibe una cadena de texto y la devuelvo si son solo numeros y letras, sino devuelvo false*/
+    public static function SI_NO($string){
         if (in_array($string,['Si','No'])) {
             return $string;
         } 
         return FALSE;
       }  
+      
 
     public static function SYSTEM($string, $min='', $max=''){
         $pattern = '/(;|\||`|>|<|&|^|"|'."\n|\r|'".'|{|}|[|]|\)|\()/i'; // no piping, passing possible environment variables ($),

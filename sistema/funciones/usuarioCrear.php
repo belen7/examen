@@ -11,7 +11,7 @@ include_once 'pagination.php';
 /**********************************************************************************************************************************************************************/
 
 
-$usuario = ( isset($_POST['usuario']) )?SanitizeVars::STRING_LETRAS_NUMEROS($_POST['usuario'],8,15):false;
+$usuario = ( isset($_POST['usuario']) )?SanitizeVars::STRING_LETRAS_NUMEROS($_POST['usuario'],4,15):false;
 $email = ( isset($_POST['email']) )?SanitizeVars::EMAIL($_POST['email']):false;
 $idRol = ( isset($_POST['rol']) )?SanitizeVars::INT($_POST['rol']):false;
 //die($usuario.'-'.$email.'-'.$idRol);

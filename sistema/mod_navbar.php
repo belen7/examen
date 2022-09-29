@@ -26,13 +26,13 @@
    </li>
    
    <li class="nav-item <?=$nav_item_usuario;?>">
-       <a class="nav-link" href="itemUsuario.php">
+       <a class="nav-link <?=$nav_item_usuario_disabled;?>"" href="itemUsuario.php">
          Usuarios
        <span class="sr-only">(current)</span></a>
    </li>
 
    <li class="nav-item <?=$nav_item_escanear;?>">
-       <a class="nav-link" href="escanearQr.php">
+       <a class="nav-link <?=$nav_item_escanear_disabled;?>" href="escanearQr.php">
          Escanear QR
        <span class="sr-only">(current)</span></a>
    </li>
