@@ -26,7 +26,7 @@ if ($entidades_a_eliminar) {
       $msg = "";
       db_start_trans($conex);     
       foreach($arreglo_entidades as $idEntidad) {
-            $sql = "DELETE FROM cliente
+            $sql = "DELETE FROM interesado
                     WHERE id = $idEntidad";
             //die($sql);   
             /** SE INICIA LA TRANSACCION **/
@@ -44,7 +44,7 @@ if ($entidades_a_eliminar) {
             if ($cantidad_entidades>1) {
                   $msg = "Hubo un Error en la Eliminaci&oacute;n de los Clientes. ";
             } else {
-                  $msg = "Hubo un Error en la Eliminaci&oacute;n de el Cliente. ";
+                  $msg = "Hubo un Error en la Eliminaciòn de el Cliente. ";
             }
             $array_resultados['codigo'] = 10;
             $array_resultados['mensaje'] = $msg;  

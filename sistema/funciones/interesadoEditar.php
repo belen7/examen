@@ -32,13 +32,13 @@ $telefono = $telefono_caracteristica.$telefono_numero;
 /**********************************************************************************************************************************************************************/
 
 $array_resultados = array();
-if ($id && $apellido && $nombres && $dni && $domicilio && $telefono && $email && $localidad && $asistio && $pago && $fecha_nacimiento) {
+if ($id && $apellido && $nombres && $dni && $domicilio &&  $email && $localidad && $asistio && $pago && $fecha_nacimiento) {
       $entidad = "Interesado";
       /** SE INICIA LA TRANSACCION **/
       db_start_trans($conex);     
       $sqlActualiza = "UPDATE interesado 
                        SET apellido = '$apellido', nombres = '$nombres', dni = '$dni', direccion = '$domicilio',
-                           telefono = '$telefono', telefono_caracteristica = '$telefono_caracteristica', telefono_numero = '$telefono_numero',
+                            telefono_caracteristica = '$telefono_caracteristica', telefono_numero = '$telefono_numero',
                            email = '$email', localidad_id = $localidad, asistio = '$asistio',
                            pago = '$pago', fecha_nacimiento = '$fecha_nacimiento'
                        WHERE id = $id";
