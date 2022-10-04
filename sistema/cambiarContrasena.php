@@ -1,0 +1,122 @@
+<?php 
+  include_once('./funciones/controlAcceso.php');
+  $nav_item_home = "active";
+  $nav_item_interesado = "";
+  $nav_item_usuario = "";
+  $nav_item_escanear = "";
+?> 
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SiGeAl - Bedelia</title>
+   <?php include_once('mod_css.html'); ?>
+   <link rel="stylesheet" href="./css/custom.css">
+   <?php include("mod_jquery.html"); ?>
+</head>
+<body>
+ 
+
+ 
+ <!-- NAVBAR -->
+ <header>
+    <?php include("mod_navbar.php"); ?>
+  </header>
+
+  <article>
+    <div id="breadcrumb">
+      <nav aria-label="breadcrumb" role="navigation">
+          <ol class="breadcrumb">
+              <li class="breadcrumb-item" aria-current="page"><a href="home.php">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Calendario</li>
+          </ol>
+      </nav>
+    </div>
+  </article>
+
+  <article class="container">
+    <div id="titulo"></div>
+  </article>
+
+  <article class="container">
+       <section>
+            <div class="row" id="filtro"></div><!-- Cierra Row-->
+            <div class="row" id="resultado">
+				<div class="col-xs-12 col-sm-12 col-md-3">&nbsp;</div>
+				<div class="col-xs-12 col-sm-12 col-md-6">
+        <form id="form">
+  <div class="form-group row">
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fa fa-address-card"></i>
+          </div>
+        </div> 
+        <input id="inputContrasena" placeholder="Contraseña" type="text" class="form-control" minlength="8" maxlength="35" required>
+      </div>
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fa fa-address-card"></i>
+          </div>
+        </div> 
+        <input id="inputReContrasena" placeholder="confirmarContraseña" type="text" class="form-control" minlength="8" maxlength="35" required>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
+      <div class="input-group">
+         
+        <button id="btnguardar" class="btn-primary btn-block" onclick="guardarContrasena()" > Guardar </button>
+      </div>
+    </div>
+  </div>
+
+</form>				
+</div>
+				<div class="col-xs-12 col-sm-12 col-md-3"></div>
+			</div><!-- Cierra Row-->
+            <div class="row" id="resultado_accion">&nbsp;</div><!-- Cierra Row-->
+        </section>
+  </article>
+
+  
+
+<!-- FOOTER -->
+<?php include("mod_footer.html"); ?>
+
+</body>
+</html>
+
+<script >
+  function guardarContrasena() {
+    let pwd=$("#inputContrasena").val();
+    let repwd=$("#inputReContrasena").val();
+    //console.log(pwd+"*"+repwd);
+    if (pwd== repwd) {
+      let msg= `<div class="alert alert-success">
+      <strong>Contraseña Guardada Correctamente</strong></div>`;
+      $("#resultado_accion").html(msg);
+      $("#inputContrasena").prop('disabled', true);
+      $("#inputReContrasena").prop('disabled', true);
+      $("#btnguardar").prop('disabled', true);
+
+    }else{
+      let msg= `<div class="alert alert-danger">
+      <strong>ERROR</strong> No coincide</div>`;
+      $("#resultado_accion").html(msg);
+    };
+    
+    
+
+  };
+</script>

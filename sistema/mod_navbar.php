@@ -42,8 +42,11 @@
         <img src="../assets/img/icons/user_icon.png" width="22">
       </a>
       <div class="dropdown-menu dropdown-menu-right bg-info" aria-labelledby="servicesDropdown">
+      <a class="dropdown-item" href="cambiarContrasena.php">Cambiar contraseña</a>
        <a class="dropdown-item" href="logout.php">Salir</a>
+       
    </div>
+   
  </li>
 </ul>
 
