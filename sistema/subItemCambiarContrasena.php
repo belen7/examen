@@ -137,8 +137,6 @@
                           <strong>Debe completar todos los campos de texto.</strong></div>`;
           $("#resultado_accion").html(msg);
     }
-      
-      
 
   };
 </script>

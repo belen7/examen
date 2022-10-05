@@ -1,0 +1,93 @@
+<section class="img form">
+<div class="jumbotron jumbotron-fluid rounded form2">
+  <div class="container justifu+y-content-center">
+    <h1 class="display-4">Editar Registro del Interesado</h1>
+    <hr>
+    <p class="lead">Estos datos son estrictamente confidenciales.</p>
+
+<form id="form">
+    
+  <div class="form-row">  
+    <div class="form-group col-md-6">
+      <label for="inputApellido">Apellido</label>
+      <input id="inputId" type="hidden" class="form-control">
+        <input id="inputApellido" placeholder="Apellido" type="text" class="form-control" minlength="8" maxlength="35" required>
+    </div>
+  </div>
+  
+  <div class="form-row">  
+    <div class="form-group col-md-6">
+      <label for="inputNombre">Nombre</label>
+      <input id="inputNombre" placeholder="Nombres" type="text" class="form-control" minlength="8" maxlength="35" required>
+    </div>
+  </div>
+
+  <div class="form-row">  
+    <div class="form-group col-md-6">
+      <label for="inputFechaNacimiento">Fecha Nacimiento</label>
+      <input type="text" class="form-control" id="inputFechaNacimiento" placeholder="dd/mm/aaaa (Fecha Nacimiento)" required>
+    </div>
+  </div>
+
+  <div class="form-row">  
+    <div class="form-group col-md-6">
+      <label for="inputDocumento">Documento</label>
+      <input id="inputDocumento" inputmode="numeric" placeholder="Documento" type="text" class="form-control" minlength="8" maxlength="8" required>
+    </div>
+  </div>
+
+  <div class="form-row">  
+    <div class="form-group col-md-6">
+      <label for="inputEmail">Domicilio</label>
+      <input id="inputDomicilio" placeholder="Domicilio" type="text" class="form-control" minlength="5" maxlength="35" required>
+    </div>
+  </div>
+  
+  <div class="form-row">  
+    <div class="form-group col-md-6">
+      <label for="inputTelefono">Teléfono</label>
+      <input id="inputTelefono" inputmode="tel" placeholder="Telefono" type="text" class="form-control" minlength="8" maxlength="35" required>
+    </div>
+  </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCity">Carácteristica</label>
+        <input id="inputCaracteristicaTelefono" inputmode="tel" placeholder="Caracteristica" type="text" class="form-control" minlength="2" maxlength="4"  onkeypress="return valideKey(event);"  required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputNumeroTelefono">Número</label>
+        <input id="inputNumeroTelefono" inputmode="tel" placeholder="Numero" type="text" class="form-control" minlength="5" maxlength="11"  onkeypress="return valideKey(event);"  required>
+      </div>
+    </div>
+
+    <div class="form-row">  
+      <div class="form-group col-md-6">
+        <label for="inputEmail">Email</label>
+        <input id="inputEmail" inputmode="email" placeholder="Email" type="email" class="form-control" minlength="8" maxlength="35" required>
+      </div>
+    </div> 
+
+  <div class="form-group">
+    <label for="inputLocalidad">Localidad</label>
+    <select id="inputLocalidad" class="form-control select2" placeholder="Localidad" required></select>
+  </div>
+
+  <div class="form-group">
+    <label for="inputAsistio">Asistió</label>
+    <select id="inputAsistio" class="form-control" placeholder="Asistio" required><option value="Si">Si</option><option value="No">No</option></select>
+  </div>
+
+  <div class="form-group">
+    <label for="inputPago">Pagó</label>
+    <select id="inputPago" class="form-control" placeholder="Pago" required><option value="Si">Si</option><option value="No">No</option></select>
+  </div>
+
+  <div class="form-group">
+    <button id="btnAceptar" type="button" class="btn btn-primary btn-block" onclick="location.href='load(1)'">Volver</button>
+  </div>
+</form>
+
+</div>
+</div>
+</section>
