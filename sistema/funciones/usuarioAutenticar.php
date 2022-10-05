@@ -21,14 +21,12 @@ $password = isset($_POST['password'])?SanitizeVars::STRING_LETRAS_NUMEROS($_POST
 $entidad = "Interesado";
 $array_resultados = array();
 
-/*$array_resultados['codigo'] = 100;
-$array_resultados['mensaje'] = $usuario.'-'.$password; */
 
 if ($email && $password) {
       $msg = "";
       $passwordMD5 = md5($password);
 
-      /** SE INICIA LA TRANSACCION **/
+      // SE INICIA LA TRANSACCION 
       $sql = "SELECT u.*, ur.tipo 
               FROM usuario u, usuario_rol ur
               WHERE u.email='$email' and u.password='$passwordMD5' and u.rol_id = ur.id";
@@ -41,6 +39,8 @@ if ($email && $password) {
             $array_resultados['mensaje'] = 'Entro'; 
             $fila = mysqli_fetch_assoc($res);
             $rol = $fila['tipo'];
+            $_SESSION['user_usuario'] = $fila['usuario'];
+            $_SESSION['user_email'] = $fila['email'];
             $_SESSION['user_rol'] = unserialize($rol)[0];
       } else {
             $array_resultados['codigo'] = 10;
@@ -49,7 +49,7 @@ if ($email && $password) {
 } else {
       $array_resultados['codigo'] = 11;
       $array_resultados['mensaje'] = 'Faltan datos obligatorios.'; 
-}
+};
 
 echo json_encode($array_resultados);
 

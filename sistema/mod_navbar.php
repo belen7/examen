@@ -32,7 +32,7 @@
    </li>
 
    <li class="nav-item <?=$nav_item_escanear;?>">
-       <a class="nav-link <?=$nav_item_escanear_disabled;?>" href="escanearQr.php">
+       <a class="nav-link <?=$nav_item_escanear_disabled;?>" href="itemEscanearQr.php">
          Escanear QR
        <span class="sr-only">(current)</span></a>
    </li>
@@ -42,7 +42,7 @@
         <img src="../assets/img/icons/user_icon.png" width="22">
       </a>
       <div class="dropdown-menu dropdown-menu-right bg-info" aria-labelledby="servicesDropdown">
-      <a class="dropdown-item" href="cambiarContrasena.php">Cambiar contraseña</a>
+      <a class="dropdown-item" href="subItemCambiarContrasena.php">Cambiar contraseña</a>
        <a class="dropdown-item" href="logout.php">Salir</a>
        
    </div>
