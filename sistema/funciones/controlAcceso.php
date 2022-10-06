@@ -11,6 +11,13 @@ if ( !isset($_SESSION['user_rol']) || ($_SESSION['user_rol']=='')) {
     } else {
         header("Location: ../index.php");
     }
-};
+} else {
+     if ($_SESSION['user_providers'] == 'PROVIDER_SYSTEM') {
+        $nav_item_cambiar_pwd = 'disabled';
+     } else {
+        $nav_item_cambiar_pwd = '';
+     }
+     
+}
 
 ?>
