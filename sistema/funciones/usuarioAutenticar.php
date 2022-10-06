@@ -27,7 +27,6 @@ $SYS_USERS = json_decode(SYS_USERS,true);
 
 if ($usuario && $password) {
 
-<<<<<<< HEAD
       if (in_array($usuario,array_keys($SYS_USERS))) {
             //die("USUARIO: ".$usuario);
             foreach($SYS_USERS as $indice => $valor) {
@@ -40,18 +39,6 @@ if ($usuario && $password) {
                         $array_resultados['mensaje'] = 'Entro'; 
                   };
             }
-=======
-      //die($sql.'**'.mysqli_num_rows($res));
-
-      if (mysqli_num_rows($res)==1) {
-            $array_resultados['codigo'] = 100;
-            $array_resultados['mensaje'] = 'Entro'; 
-            $fila = mysqli_fetch_assoc($res);
-            $rol = $fila['tipo'];
-            $_SESSION['user_usuario'] = $fila['usuario'];
-            $_SESSION['user_email'] = $email;
-            $_SESSION['user_rol'] = unserialize($rol)[0];
->>>>>>> 328e9b156e6e5f410212a5f7389a2a6ebad38329
       } else {
             $msg = "";
             $passwordMD5 = md5($password);
