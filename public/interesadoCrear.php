@@ -66,8 +66,8 @@ if ($apellido && $nombres && $dni && $domicilio && $telefono && $localidad && $e
       $password_por_defecto = md5('12345678');
       /** SE INICIA LA TRANSACCION **/
       db_start_trans($conex);     
-      $sqlInserta = "INSERT INTO  interesado (apellido, nombres, dni, direccion, telefono, email, localidad_id, foto, fecha_nacimiento ) values
-                                            ('$apellido', '$nombres', '$dni', '$domicilio','$telefono','$email','$localidad', '$foto', '$fecha_nacimiento')";
+      $sqlInserta = "INSERT INTO  `interesado` (apellido, nombres, dni, direccion, telefono, telefono_caracteristica, telefono_numero, email, localidad_id, foto, fecha_nacimiento ) values
+                                            ('$apellido', '$nombres', '$dni', '$domicilio','$telefono','$caracteristica','$numero','$email','$localidad', '$foto', '$fecha_nacimiento')";
       //die($sqlInserta);
       $ok = @mysqli_query($conex,$sqlInserta);
 

@@ -40,7 +40,7 @@ if ($email && $password) {
             $fila = mysqli_fetch_assoc($res);
             $rol = $fila['tipo'];
             $_SESSION['user_usuario'] = $fila['usuario'];
-            $_SESSION['user_email'] = $fila['email'];
+            $_SESSION['user_email'] = $email;
             $_SESSION['user_rol'] = unserialize($rol)[0];
       } else {
             $array_resultados['codigo'] = 10;
