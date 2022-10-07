@@ -132,11 +132,11 @@ label.cameraButton input[accept*="camera"] {
     <div class="modal-content">
       <div class="modal-body">
          <div class="alert alert-success" role="alert">
-            El registro ha sido exitoso.
+            <img src="../assets/img/icons/ok_icon.png" width="33" >&nbsp;&nbsp;<strong>El registro ha sido exitoso.</strong>
          </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>

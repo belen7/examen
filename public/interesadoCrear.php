@@ -94,7 +94,7 @@ if ($apellido && $nombres && $dni && $domicilio && $telefono && $localidad && $e
             $arreglo_datos['domicilio'] = $domicilio;
             $arreglo_datos['telefono'] = $telefono;
             $arreglo_datos['email'] = $email;
-            enviarEmail($arreglo_datos);
+            //enviarEmail($arreglo_datos); //Envio de Emails
             $msg = "El ".$entidad." fue creado exitosamente. Revise su correo electronico.";
             $array_resultados['codigo'] = 100;
             $array_resultados['mensaje'] = $msg;

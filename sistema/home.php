@@ -4,7 +4,6 @@
   $nav_item_interesado = "";
   $nav_item_usuario = "";
   $nav_item_escanear = "";
-  die($nav_item_cambiar_pwd);
 ?> 
 <!doctype html>
 <html lang="es">
