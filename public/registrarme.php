@@ -132,7 +132,14 @@ label.cameraButton input[accept*="camera"] {
     <div class="modal-content">
       <div class="modal-body">
          <div class="alert alert-success" role="alert">
-            <img src="../assets/img/icons/ok_icon.png" width="33" >&nbsp;&nbsp;<strong>El registro ha sido exitoso.</strong>
+            <div>
+              <img src="../assets/img/icons/ok_icon.png" width="30" >
+              <strong class="ml-2">El registro se ha realizado exitosamente.</strong>
+            </div>
+            <div class="mt-2">
+              <img src="../assets/img/icons/alert_icon.png" width="30" >
+              <strong class="ml-2">Nota:</strong> Revise su email y los datos de la registración. Si no encuentra el email revise su carpeta de SPAM.
+            </div>
          </div>
       </div>
       <div class="modal-footer">
