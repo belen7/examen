@@ -641,4 +641,37 @@ $("body").on("click","#seleccionar_todos", function() {
                         `);
                         load(1);
                 },"json");
+  };
+
+  function enviarEmail(id) {
+    alert('entro:'+id);
+    let url = "./funcionesenviarEmail.php";
+    let parametros = {"interesado_id":id};
+    $.post(url, parametros, function(data) {
+        if (data.codigo==100) {
+            $("#resultado_accion").html(`
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 alert alert-success">
+                                      <span style="color: #000000;">
+                                      <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                          <strong>Atención:</strong>&nbsp;`+data.mensaje+`
+                                      </span>
+                                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                      </button>       
+                                </div>
+                        `);
+        } else {
+            $("#resultado_accion").html(`
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 alert alert-danger">
+                                      <span style="color: #000000;">
+                                      <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                          <strong>Atención:</strong>&nbsp;`+data.mensaje+`
+                                      </span>
+                                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                      </button>       
+                                </div>
+                        `);
+        }
+    },"json");
   }
