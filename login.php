@@ -102,7 +102,7 @@ label.cameraButton input[accept*="camera"] {
             <i class="fa fa-address-card"></i>
           </div>
         </div> 
-        <input id="inputPassword" placeholder="Password" type="password" class="form-control" minlength="8" maxlength="10" required>
+        <input id="inputPassword" placeholder="Password" type="password" class="form-control" minlength="8" maxlength="15" required>
       </div>
     </div>
   </div>

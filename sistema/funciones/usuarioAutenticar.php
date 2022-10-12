@@ -28,7 +28,6 @@ $SYS_USERS = json_decode(SYS_USERS,true);
 if ($usuario && $password) {
 
       if (in_array($usuario,array_keys($SYS_USERS))) {
-            //die("USUARIO: ".$usuario);
             foreach($SYS_USERS as $indice => $valor) {
                   if ($indice==$usuario && $valor==$password) {
                         $_SESSION['user_usuario'] = $usuario;
@@ -37,6 +36,7 @@ if ($usuario && $password) {
                         $_SESSION['user_providers'] = 'PROVIDER_SYSTEM';
                         $array_resultados['codigo'] = 100;
                         $array_resultados['mensaje'] = 'Entro'; 
+                        break;
                   };
             }
       } else {
