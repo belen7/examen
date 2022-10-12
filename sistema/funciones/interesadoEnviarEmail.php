@@ -3,15 +3,18 @@ set_include_path('../../lib/'.PATH_SEPARATOR.'../../conexion/');
 //include_once 'seguridadNivel.php';
 include_once 'conexion.php';
 include_once 'Sanitize.class.php';
+require_once 'phpqrcode/qrlib.php';
 //include_once 'ArrayHash.class.php';
 
 
-function enviarEmail($arr) {
+function enviarEmail($arreglo) {
+      //var_dump($arreglo[0]);die;
+      $arr = $arreglo[0];
       $valorParametro = base64_encode($arr['dni']);
       $url = "https://escuela40.net/acreditacion/sistema/buscarPorQr.php?q=" . $valorParametro;
       //$url = "http://127.0.0.1/proyecto/acreditacion/sistema/buscarPorQr.php?q=" . $valorParametro;
       $nombreArchivo = "../../qr/qrInteresado".$arr['dni'].".png";
-      die('<zx<zx<zx'.$nombreArchivo);
+      //die('<zx<zx<zx'.$nombreArchivo);
       
       QRCode::png($url, $nombreArchivo, 'QR_ECLEVEL_Q', 5, 1);
       $para = $arr['email'];
@@ -27,7 +30,7 @@ function enviarEmail($arr) {
             '<tr><th align="left">Apellido</th><td>'.$arr['apellido'].'</td></tr>'.
             '<tr><th align="left">Nombres</th><td>'.$arr['nombres'].'</td></tr>'.
             '<tr><th align="left">DNI</th><td>'.$arr['dni'].'</td></tr>'.
-            '<tr><th align="left">Domiclio</th><td>'.$arr['domicilio'].'</td></tr>'.
+            '<tr><th align="left">Domiclio</th><td>'.$arr['direccion'].'</td></tr>'.
             '<tr><th align="left">Telefono</th><td>'.$arr['telefono'].'</td></tr>'.
             '<tr><th colspan="2" align="center"><img src="https://escuela40.net/acreditacion/qr/qrInteresado'.$arr['dni'].'.png" width="200"></td></tr>'.
             '</table>'.
