@@ -643,9 +643,13 @@ $("body").on("click","#seleccionar_todos", function() {
                 },"json");
   };
 
+
+  /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  //************************************************ */
+  // NOS PERMITE ENVIAR UN EMAIL A UNA INTERESADO    */
+  //************************************************ */
   function enviarEmail(id) {
-    alert('entro:'+id);
-    let url = "./funcionesenviarEmail.php";
+    let url = "./funciones/interesadoEnviarEmail.php";
     let parametros = {"interesado_id":id};
     $.post(url, parametros, function(data) {
         if (data.codigo==100) {

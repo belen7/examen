@@ -45,7 +45,7 @@ function enviarEmail($arr) {
 /**************************************************************** RECIBIR PARAMETROS Y SANITIZARLOS *******************************************************************/
 /**********************************************************************************************************************************************************************/
 
-$id = ( isset($_POST['id']) )?SanitizeVars::INT($_POST['id']):false;
+$id = ( isset($_POST['interesado_id']) )?SanitizeVars::INT($_POST['interesado_id']):false;
 
 
 /**********************************************************************************************************************************************************************/
@@ -55,22 +55,24 @@ $id = ( isset($_POST['id']) )?SanitizeVars::INT($_POST['id']):false;
 $array_resultados = array();
 if ($id) {
       $sql = "SELECT c.*, l.nombre as localidad_nombre, p.nombre as provincia_nombre
-              FROM cliente c, localidad l, provincia p
+              FROM interesado c, localidad l, provincia p
               WHERE c.id = $id and c.localidad_id=l.id and l.provincia_id=p.id";
-      //die($sqlActualiza);    
+      //die($sql);    
 
       $ok = mysqli_query($conex,$sql);
       //PRENGUNTAMOS SI HUBO ERROR
       if($ok){
-            if (mysqli_num_rows($resultado)>0) {
+            if (mysqli_num_rows($ok)>0) {
                   $filas = mysqli_fetch_all($ok,MYSQLI_ASSOC);
                   $array_resultados['codigo'] = 100;
                   $array_resultados['datos'] = $filas;
+                  $array_resultados['mensaje'] = "El Email fuen enviado Exitosamente con el Código QR.";
+                  enviarEmail($filas);
                 } else {
                   $array_resultados['codigo'] = 12;
-                  $array_resultados['datos'] = "No existen Interesados con ese ID.";
+                  $array_resultados['mensaje'] = "No existen Interesados con ese ID.";
                 }
-                enviarEmail($filas);
+                
       } else {
             $array_resultados['codigo'] = 11;
             $array_resultados['mensaje'] = "Error en la consulta.";
