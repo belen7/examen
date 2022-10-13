@@ -119,7 +119,7 @@
 
    function confirmarAsistencia(id) {
       alert(id);
-      location.href = './buscarPorQr.php';
+      location.href = './itemEscanearQr.php';
    }
    
 </script>
