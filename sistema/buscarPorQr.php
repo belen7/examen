@@ -100,7 +100,7 @@
                     <img class="img-thumbnail img-fluid " src="../fotos/`+response.datos[0].foto+`" alt="" width="120"> 
                   </div>
                   <hr>
-                  <p><strong>Apellido: </strong> <span class="badge badge-primary">`+response.datos[0].apellido+`, `+response.datos[0].nombres+ `</span>
+                  <p><strong>Apellido:  <span class="badge badge-primary">`+response.datos[0].apellido+`, `+response.datos[0].nombres+ `</span></strong>
                   <p><strong>DNI:      </strong> <span class="badge badge-primary">`+response.datos[0].dni+`</span>
                   <p><strong>Direccion:</strong> `+response.datos[0].direccion+`
                   <p><strong>Celular:      </strong> <span class="badge badge-primary"> (`+response.datos[0].telefono_caracteristica+`) `+response.datos[0].telefono_numero+` </span>
