@@ -100,13 +100,13 @@
                     <img class="img-thumbnail img-fluid " src="../fotos/`+response.datos[0].foto+`" alt="" width="120"> 
                   </div>
                   <hr>
-                  <p><strong>Apellido:  <span class="badge badge-primary">`+response.datos[0].apellido+`, `+response.datos[0].nombres+ `</span></strong>
-                  <p><strong>DNI:      </strong> <span class="badge badge-primary">`+response.datos[0].dni+`</span>
+                  <p><strong>Apellido: <span class="badge badge-primary">`+response.datos[0].apellido+`, `+response.datos[0].nombres+ `</span></strong>
+                  <p><strong>DNI: <span class="badge badge-primary">`+response.datos[0].dni+`</span></strong>
                   <p><strong>Direccion:</strong> `+response.datos[0].direccion+`
-                  <p><strong>Celular:      </strong> <span class="badge badge-primary"> (`+response.datos[0].telefono_caracteristica+`) `+response.datos[0].telefono_numero+` </span>
+                  <p><strong>Celular: <span class="badge badge-primary"> (`+response.datos[0].telefono_caracteristica+`) `+response.datos[0].telefono_numero+` </span></strong>
                   <p><strong>Localidad: </strong> `+response.datos[0].localidad_nombre+`, `+response.datos[0].provincia_nombre+`
-                  <p><strong>Email: </strong>  <span class="badge badge-primary">`+response.datos[0].email+`</span>
-                  <p><strong>Abonó: </strong>  <span class="badge badge-warning">`+response.datos[0].pago+`</span>
+                  <p><strong>Email: <span class="badge badge-primary">`+response.datos[0].email+`</span></strong>
+                  <p><strong>Abonó: <span class="badge badge-warning">`+response.datos[0].pago+`</span></strong>
                   <hr>
                   <p><button class="btn btn-primary btn-block" onclick="confirmarAsistencia()">Confirmar</button>`;
           $("#resultado").html(html);
