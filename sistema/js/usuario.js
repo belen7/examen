@@ -293,8 +293,9 @@ function entidadGuardarEditado(){
     let id = $("#inputId").val();
     let usuario = $("#inputUsuario").val();
     let email = $("#inputEmail").val();
+    let password = $("#inputPassword").val();
     let rol = $("#inputRol").val();
-    let parametros = {"id":id,"usuario":usuario,"email":email,"rol":rol};
+    let parametros = {"id":id,"usuario":usuario,"email":email,"password":password,"rol":rol};
     let url = "funciones/"+entidad_nombre+"Editar.php";
     if (usuario!="" && email!=="" && rol!="") {
         $.post(url,parametros, function(data) {

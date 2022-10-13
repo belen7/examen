@@ -70,7 +70,9 @@ if ($id) {
                   $array_resultados['codigo'] = 100;
                   $array_resultados['datos'] = $filas;
                   $array_resultados['mensaje'] = "El Email fuen enviado Exitosamente con el Código QR.";
-                  enviarEmail($filas);
+                  if ($_SERVER["HTTP_HOST"]!=='127.0.0.1') {
+                        enviarEmail($filas);
+                  };
                 } else {
                   $array_resultados['codigo'] = 12;
                   $array_resultados['mensaje'] = "No existen Interesados con ese ID.";

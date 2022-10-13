@@ -9,7 +9,6 @@ include_once 'pagination.php';
 
 //die(unserialize('a:1:{i:0;s:8:"empleado";}')[0]);
 
-
 $rol_usuario = '';
 $rol_admin = ($_SESSION['user_rol']=='admin' || $_SESSION['user_rol']=='SYSTEM')?'':'disabledbutton';
 

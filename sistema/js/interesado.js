@@ -259,88 +259,39 @@ function entidadCrear(){
 //************************************************* */
 function entidadVer(entidad_id){
     let datos_entidad = "";
-    let url = "html/"+entidad_nombre+"Editar.html";
+    let url = "html/"+entidad_nombre+"Ver.html";
     let url_obtener_entidad = "funciones/localidadObtener.php";
     let breadcrumb = `<nav aria-label="breadcrumb" role="navigation">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item" aria-current="page"><a href="home.php">Home</a></li>
                                 <li class="breadcrumb-item" aria-current="page"><a href="#" onclick="load(1)">`+entidad_titulo2+`</></a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Editar</li>
+                                <li class="breadcrumb-item active" aria-current="page">Ver</li>
                             </ol>
                         </nav>`;
     $("#breadcrumb").slideDown("slow").html(breadcrumb);   
     datos_entidad = entidadObtenerPorId(entidad_id);
+    console.log(datos_entidad);
    
     $.get(url,function(data) {
           $("#resultado").slideDown("slow").html(data);
           /******************************************************************** */
           /**************************** CAMBIAR ******************************* */
-          $("#inputId").val(datos_entidad.datos[0].id);
-          $("#inputApellido").val(datos_entidad.datos[0].apellido);
-          $("#inputNombre").val(datos_entidad.datos[0].nombres);
-          $("#inputDocumento").val(datos_entidad.datos[0].dni);
-          $("#inputDomicilio").val(datos_entidad.datos[0].direccion);
-          $("#inputTelefono").val(datos_entidad.datos[0].telefono);
-          $("#inputCaracteristicaTelefono").val(datos_entidad.datos[0].telefono_caracteristica);
-          $("#inputNumeroTelefono").val(datos_entidad.datos[0].telefono_numero);
-          $("#inputEmail").val(datos_entidad.datos[0].email);
-          $("#inputAsistio option[value="+ datos_entidad.datos[0].asistio +"]").attr("selected",true);
-          $("#inputPago option[value="+ datos_entidad.datos[0].pago +"]").attr("selected",true);
-          $("#inputFechaNacimiento").datepicker({
-              dateFormat: 'dd/mm/yy',
-              //startDate: '-3d'
-          });
-
-          let anio = (datos_entidad.datos[0].fecha_nacimiento).substr(0,4);
-          let mes = (datos_entidad.datos[0].fecha_nacimiento).substr(5,2);
-          let dia = (datos_entidad.datos[0].fecha_nacimiento).substr(8,2);
-          
-          
-          //$("#inputFechaNacimiento").val(datos_entidad.datos[0].fecha_nacimiento);
-          let realDate = new Date(anio+'/'+mes+'/'+dia);  
-          $("#inputFechaNacimiento").datepicker('setDate',realDate);
-          
-          $('#inputLocalidad').select2({
-              theme: "bootstrap",
-              placeholder: "Localidad",
-              ajax: {
-                  url: url_obtener_entidad,
-                  dataType: 'json',
-                  delay: 250,
-                  data: function (datos) {
-                      return {
-                          searchTerm: datos.term // search term
-                      };
-                  },
-                  processResults: function (response) {
-                      return {
-                          results:response
-                      };
-                  },
-                  cache: true
-              }
-          });
-          $("#inputAsistio option[value="+ datos_entidad.datos[0].asistio +"]").attr("selected",true);
-          $("#inputPago option[value="+ datos_entidad.datos[0].Pago +"]").attr("selected",true);
-          //alert(datos_entidad.datos[0].localidad_id);
-         // $('#inputLocalidad').find("option[value='" + datos_entidad.datos[0].localidad_id + "']")
-          //$('#inputLocalidad').val(datos_entidad.datos[0].localidad_id); // Select the option with a value of '1'
-          //$('#inputLocalidad').trigger('change'); // Notify any JS components that the value changed
-          var data = {
-              id: datos_entidad.datos[0].localidad_id,
-              text: datos_entidad.datos[0].localidad_nombre + ' (Pcia. ' + datos_entidad.datos[0].provincia_nombre + ')'
-          };
-          
-          var newOption = new Option(data.text, data.id, false, false);
-          $('#inputLocalidad').append(newOption).trigger('change');
-          //$("#inputLocalidad option[value="+ datos_entidad.datos[0].localidad_id +"]").attr("selected",true);
+          $("#spn_nombres").html(datos_entidad.datos[0].apellido+', '+datos_entidad.datos[0].nombres);
+          $("#spn_fecha_nacimiento").html(datos_entidad.datos[0].fecha_nacimiento);
+          $("#spn_documento").html(datos_entidad.datos[0].dni);
+          $("#spn_domicilio").html(datos_entidad.datos[0].direccion);
+          $("#spn_celular").html('('+datos_entidad.datos[0].telefono_caracteristica+') '+datos_entidad.datos[0].telefono_numero);
+          $("#spn_email").html(datos_entidad.datos[0].email);
+          $("#spn_localidad").html(datos_entidad.datos[0].localidad_nombre + ' | Pcia. ' + datos_entidad.datos[0].provincia_nombre + ' | CP. '+datos_entidad.datos[0].codigo_postal);
+          $("#spn_asistio").html(datos_entidad.datos[0].asistio);
+          $("#spn_pago").html(datos_entidad.datos[0].pago);
+          $('#imgInteresado').attr('src','../fotos/' + datos_entidad.datos[0].foto);
+          $('#btnVerEditar').attr('onclick', 'entidadEditar('+datos_entidad.datos[0].id+')');
           
            /******************************************************************** */
            /******************************************************************** */
     });
 }
-
-
 
 
 
@@ -649,6 +600,7 @@ $("body").on("click","#seleccionar_todos", function() {
   // NOS PERMITE ENVIAR UN EMAIL A UNA INTERESADO    */
   //************************************************ */
   function enviarEmail(id) {
+    if (confirm("Desea enviar un Email con el QR y sus datos al Interesado?")) {
     let url = "./funciones/interesadoEnviarEmail.php";
     let parametros = {"interesado_id":id};
     $.post(url, parametros, function(data) {
@@ -678,4 +630,5 @@ $("body").on("click","#seleccionar_todos", function() {
                         `);
         }
     },"json");
+    };
   }

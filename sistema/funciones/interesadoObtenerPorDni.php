@@ -8,7 +8,7 @@ $dni = ( isset($_POST['dni']) )?SanitizeVars::INT($_POST['dni']):false;
 
 $array_resultados = array();
 if ($dni) {
-    $sql = "SELECT c.*, UPPER(l.nombre) as localidad_nombre, UPPER(p.nombre) as provincia_nombre
+    $sql = "SELECT c.*, l.cp as codigo_postal, UPPER(l.nombre) as localidad_nombre, UPPER(p.nombre) as provincia_nombre
             FROM interesado c, localidad l, provincia p
             WHERE c.dni = $dni and c.localidad_id=l.id and l.provincia_id=p.id";
 
@@ -19,11 +19,11 @@ if ($dni) {
       $array_resultados['datos'] = $filas;
     } else {
       $array_resultados['codigo'] = 11;
-      $array_resultados['datos'] = "No existen Clientes.";
+      $array_resultados['datos'] = "No existen Interesados.";
     }
 } else {
   $array_resultados['codigo'] = 10;
-  $array_resultados['datos'] = "El DNI de Cliente es Incorrecto.";
+  $array_resultados['datos'] = "El DNI del Interesado es Incorrecto.";
 }
 
 echo json_encode($array_resultados);

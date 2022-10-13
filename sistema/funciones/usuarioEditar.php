@@ -13,6 +13,7 @@ $id = ( isset($_POST['id']) )?SanitizeVars::INT($_POST['id']):false;
 $usuario = ( isset($_POST['usuario']) )?SanitizeVars::STRING_LETRAS_NUMEROS($_POST['usuario'],6,15):false;
 $email = ( isset($_POST['email']) )?SanitizeVars::EMAIL($_POST['email']):false;
 $idRol = ( isset($_POST['rol']) )?SanitizeVars::INT($_POST['rol']):false;
+$password = ( isset($_POST['password']) )?SanitizeVars::STRING_LETRAS_NUMEROS($_POST['usuario'],6,15):false;
 
 
 //die($id.'-'.$usuario.'-'.$email.'-'.$idRol);
@@ -25,10 +26,18 @@ $array_resultados = array();
 if ($id && $usuario && $email && $idRol) {
       $entidad = "Usuario";
       /** SE INICIA LA TRANSACCION **/
-      db_start_trans($conex);     
-      $sqlActualiza = "UPDATE usuario 
-                       SET usuario = '$usuario', email = '$email', rol_id = $idRol
-                       WHERE id = $id";
+      db_start_trans($conex); 
+      $sqlActualiza = "";
+      if ($password===false) {   
+            $sqlActualiza = "UPDATE usuario 
+                             SET usuario = '$usuario', email = '$email', rol_id = $idRol
+                             WHERE id = $id";
+      } else {
+            $pwd = md5($password);
+            $sqlActualiza = "UPDATE usuario 
+                             SET usuario = '$usuario', email = '$email', rol_id = $idRol, password = '$pwd'
+                             WHERE id = $id";
+      };
                      
       
       //die($sqlActualiza);    
