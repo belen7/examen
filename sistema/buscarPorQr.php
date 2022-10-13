@@ -108,7 +108,7 @@
                   <p><strong>Email: <span class="badge badge-primary">`+response.datos[0].email+`</span></strong>
                   <p><strong>Abonó: <span class="badge badge-warning">`+response.datos[0].pago+`</span></strong>
                   <hr>
-                  <p><button class="btn btn-primary btn-block" onclick="confirmarAsistencia()">Confirmar</button>`;
+                  <p><button class="btn btn-primary btn-block" onclick="confirmarAsistencia(`+response.datos[0].id+`)">Confirmar</button>`;
           $("#resultado").html(html);
 
       } else {
@@ -117,8 +117,8 @@
     },"json")
   });
 
-   function confirmarAsistencia() {
-      alert('Confirmar');
+   function confirmarAsistencia(id) {
+      alert('id');
       location.href = './escanearQr.php';
    }
    
