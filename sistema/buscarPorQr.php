@@ -124,9 +124,21 @@
       if (confirm("Desea Confirmar Asistencia?")) {
         if (id) {
           //location.href = './itemEscanearQr.php';
-          alert('si');
+          $.post(url,parametros, function(data){
+             if (data.codigo==100) {
+                alert('Atención: Se confirmó la asistencia CORRECTAMENTE.');
+                location.href = './itemEscanearQr.php';
+             } else {
+                alert('Atención: Hubo un Error en el Servidor.');
+                location.href = './itemEscanearQr.php';
+             };
+          },"json")
+        } else {
+            alert('Atención: Hubo un Error con el ID del Interesado.');
+            location.href = './itemEscanearQr.php';
         }
     } else {
+        alert('Atención: Usted Eligió NO confirmar la asistencia.');
         location.href = './itemEscanearQr.php';
     } 
    }
