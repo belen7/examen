@@ -129,7 +129,7 @@
                 alert('Atención: Se confirmó la asistencia CORRECTAMENTE.');
                 location.href = './itemEscanearQr.php';
              } else {
-                alert('Atención: Hubo un Error en el Servidor.');
+                alert('Atención: Hubo un Error en el Servidor.'+data.mensaje);
                 location.href = './itemEscanearQr.php';
              };
           },"json")
