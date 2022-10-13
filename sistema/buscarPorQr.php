@@ -118,8 +118,17 @@
   });
 
    function confirmarAsistencia(id) {
-      alert(id);
-      location.href = './itemEscanearQr.php';
+      //alert(id);
+      let url = "./funciones/interesadoConfirmarAsistencia.php";
+      let parametros = {"interesado_id":id};
+      if (confirm("Desea Confirmar Asistencia?")) {
+        if (id) {
+          //location.href = './itemEscanearQr.php';
+          alert('si');
+        }
+    } else {
+        location.href = './itemEscanearQr.php';
+    } 
    }
    
 </script>
