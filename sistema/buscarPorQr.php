@@ -103,7 +103,7 @@
                   <p><strong>Apellido: </strong> `+response.datos[0].apellido+`, `+response.datos[0].nombres+ `
                   <p><strong>DNI:      </strong> `+response.datos[0].dni+`
                   <p><strong>Direccion:</strong> `+response.datos[0].direccion+`
-                  <p><strong>Celular:      </strong> (`+response.datos[0].telefono_caracteristica+`) `+response.datos[0].telefono_numero+`
+                  <p><strong>Celular:      </strong> <span class="badge badge-primary"> (`+response.datos[0].telefono_caracteristica+`) `+response.datos[0].telefono_numero+` </span>
                   <p><strong>Localidad: </strong> `+response.datos[0].localidad_nombre+`, `+response.datos[0].provincia_nombre+`
                   <p><strong>Email: </strong>  `+response.datos[0].email+`
                   <p><strong>Abonó: </strong>  `+response.datos[0].pago+`
