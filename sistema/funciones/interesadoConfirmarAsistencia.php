@@ -9,7 +9,7 @@ include_once 'SanitizeCustom.class.php';
 /**********************************************************************************************************************************************************************/
 /**************************************************************** RECIBIR PARAMETROS Y SANITIZARLOS *******************************************************************/
 /**********************************************************************************************************************************************************************/
-$id = ( isset($_POST['id']) )?SanitizeVarsCustom::INT($_POST['id']):false;
+$id = ( isset($_POST['interesado_id']) )?SanitizeVarsCustom::INT($_POST['interesado_id']):false;
 
 //var_dump($_POST);die;
 //die($id.'-'.$apellido.'-'.$nombres.'-'.$dni.'-'.$domicilio.'-'.$telefono.'-'.$telefono_caracteristica.'-'.$telefono_numero.'-'.$email.'-'.$localidad.'-'.$asistio.'-'.$pago.'-'.$fecha_nacimiento);
