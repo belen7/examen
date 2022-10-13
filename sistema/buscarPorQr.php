@@ -118,7 +118,7 @@
   });
 
    function confirmarAsistencia(id) {
-      alert('id');
+      alert(id);
       location.href = './escanearQr.php';
    }
    
