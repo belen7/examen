@@ -10,7 +10,7 @@ include_once 'Sanitize.class.php';
 /**********************************************************************************************************************************************************************/
 
 $usuario = isset($_POST['usuario'])?SanitizeVars::STRING($_POST['usuario'],2,50):false;
-$password = isset($_POST['password'])?SanitizeVars::STRING_LETRAS_NUMEROS($_POST['password'],8,15):false;
+$password = isset($_POST['password'])?SanitizeVars::STRING_LETRAS_NUMEROS($_POST['password'],4,15):false;
 
 //var_dump($_POST);
 //die($apellido.'-'.$nombres.'-'.$dni.'-'.$domicilio.'-'.$telefono.'-'.$email.'-'.$localidad);

@@ -89,7 +89,7 @@ label.cameraButton input[accept*="camera"] {
             <i class="fa fa-address-card"></i>
           </div>
         </div> 
-        <input id="inputEmail" placeholder="Email" type="email" class="form-control" minlength="8" maxlength="35" required>
+        <input id="inputEmail" placeholder="Ingrese Usuario" type="email" class="form-control" minlength="4" maxlength="35" required>
       </div>
     </div>
   </div>
@@ -102,7 +102,7 @@ label.cameraButton input[accept*="camera"] {
             <i class="fa fa-address-card"></i>
           </div>
         </div> 
-        <input id="inputPassword" placeholder="Password" type="password" class="form-control" minlength="8" maxlength="15" required>
+        <input id="inputPassword" placeholder="Ingrese Contraseña" type="password" class="form-control" minlength="8" maxlength="15" required>
       </div>
     </div>
   </div>

@@ -19,6 +19,13 @@
 
 <ul class="navbar-nav ml-auto">
 
+
+<li class="nav-item <?=$nav_item_disertante;?>">
+       <a class="nav-link" href="itemDisertante.php">
+         Disertante
+       <span class="sr-only">(current)</span></a>
+   </li>
+
    <li class="nav-item <?=$nav_item_interesado;?>">
        <a class="nav-link" href="itemInteresado.php">
          Interesados
